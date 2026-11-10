@@ -1,0 +1,418 @@
+body {
+    margin: 0;
+
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    margin-left: 4rem;
+}
+
+
+h1 {
+    font-family: 'Mountains of Christmas';
+    font-weight: 400;
+}
+
+.sections {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    font-family: 'Poppins';
+}
+
+
+.sections span:hover {
+    cursor: pointer;
+}
+
+.sections span a {
+    text-decoration: none;
+    color:#767676;
+}
+
+.sections span a:visited {
+    color: purple;
+}
+
+#first-hr {
+    width: 90%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#searchbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+#searchbar {
+    margin-left: 4rem;
+    width: 60%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.2rem;
+    margin-top: 3rem;
+    border-radius: 15px;
+    border: 2px solid grey;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    font-family: 'Poppins';
+
+}
+
+#searchbar:focus-visible {
+    outline-color: #cae0c7;
+}
+
+
+#searchbar::placeholder {
+    font-family: 'Poppins';
+    color: #767676;
+    font-weight: 400;
+    font-size: 1.5rem;
+    
+   
+
+}
+
+
+#filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-style: normal;
+}
+
+.filter {
+    border: 2px solid grey;
+    border-radius: 10px;
+    min-width: max-content;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.filter span {
+    padding: .8rem;
+}
+
+
+.filter:hover {
+    border-color: #cae0c7;
+    cursor: pointer;
+}
+
+#second-hr {
+    width: 90%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+#search-results {
+    margin-top: 0;
+}
+
+h2 {
+    margin-left: 4rem;
+    font-family: 'Mountains of Christmas';
+    font-weight: 300;
+    padding-top: 0;
+    margin-top: 1rem;
+}
+
+.recipe-empty-state {
+    font-family: 'Poppins';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#third-hr {
+    width: 90%;
+
+}
+
+h4 {
+    margin-left: 4rem;
+    font-family: 'Mountains of Christmas';
+    font-weight: 300;
+    padding-top: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+#regions {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    font-family: 'Poppins';
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.3rem;
+}
+
+.region {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: .5rem;
+    border: 2px solid #cae0c7;
+    border-radius: 10px;
+}
+
+
+
+#regions .region span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    
+    
+
+}
+
+#fourth-hr {
+    margin-top: 4rem;
+    width: 90%;
+}
+
+h5 {
+    margin-left: 4rem;
+    font-family: 'Mountains of Christmas';
+    font-weight: 300;
+    padding-top: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+#no-favorites {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    font-family: 'Poppins';
+}
+
+#fifth-hr {
+    margin-top: 5rem;
+    width: 90%;
+}
+
+h6 {
+    margin-left: 4rem;
+    font-family: 'Mountains of Christmas';
+    font-weight: 300;
+    padding-top: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem; 
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 50%;
+    margin-left: 6rem;
+    gap: 0.7rem;
+    font-family: 'Poppins';
+}
+
+form input::placeholder{
+    font-family: 'Poppins';
+    
+}
+
+form input:focus-visible {
+    outline-color: #cae0c7;
+}
+
+form input {
+    width: 50%;
+    border-radius: 7px;
+    border: 1px solid #767676;
+    padding-left: 0.6rem;
+}
+
+form textarea {
+    width: 50%;
+    min-height: 10vh;
+    border-radius: 10px;
+    padding-left: 0.6rem;
+}
+
+form textarea::placeholder {
+    font-family: 'Poppins';
+    
+}
+
+form textarea:focus-visible {
+    outline-color: #cae0c7;
+}
+
+form button {
+    align-self: flex-start;
+    border-radius: 10px;
+    background-color: #cae0c7;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#last-hr {
+    width: 90%;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    font-family: 'Mountains of Christmas';
+    font-weight: 400;
+    font-size: 3rem;
+    padding-top: 0;
+    
+}
+
+div.logo{
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+#copyright {
+    font-family: 'Poppins';
+    font-style: italic;
+}
+
+#copyright .logo{
+    font-size: inherit;
+    font-style: normal;
+
+}
+
+
+/* Dynamic JS Elements Styles  */
+
+.recipe-non-empty-state {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 1rem;
+
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 20%;
+    border: 2px solid #cae0c7;
+    border-radius: 10px;
+
+}
+
+
+
+
+.pictureDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50%;
+    border: transparent;
+    border-radius: 10px;
+    margin-top: 5%;
+
+
+}
+
+.titleDurationClass {
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins';
+    padding-bottom: 0.4rem;
+}
+
+
+.recipeTitleDivClass {
+    display: flex;
+    border: transparent;
+    
+
+}
+
+.recipeTitleDivClass > h3 {
+    justify-self: start;
+    width: 100%;
+    padding-left: 0;
+    font-size: 0.8rem;
+    padding-bottom: 0;
+    margin-bottom: 0.3rem;
+}
+
+.recipeTitleDivClass span {
+    justify-self: end; 
+    font-size: 0.8rem;
+}
+
+.btnDivClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-family: 'Poppins';
+    padding-bottom: 1rem;
+}
+
+.recipeBtn {
+    width: fit-content;
+    background-color: #cae0c7;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+
