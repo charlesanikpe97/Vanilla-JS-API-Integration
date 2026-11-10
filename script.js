@@ -7,6 +7,11 @@ const favoritesEl = document.querySelector('#favorites');
 const noFavoritesEl = document.querySelector('#no-favorites');
 
 
+// Grabbing Region Div 
+
+const regionsWholeDiv = document.querySelector('#regions');
+
+
 // Consolidating DummyJson Recipes by my own categories 
 
 
@@ -146,6 +151,30 @@ const savouryDishesRecipes = async () => {
     return filteredRecipes;
 }; 
 
+// Filtering Dessert & Drinks from all recipes object 
+
+const dessertDrinksRecipes = async () => {
+    const allRecipes = await getAllRecipes();
+
+
+    const filteredRecipes = allRecipes.filter((recipe => recipe.mealType.includes('Dessert') || recipe.mealType.includes('Beverage')));
+
+    return filteredRecipes;
+}
+
+// Filtering Recipes by Cuisine 
+
+const cuisineRecipes = async (region) => {
+    const allRecipes = await getAllRecipes();
+
+    const filteredByCuisine = allRecipes.filter((recipe => recipe.cuisine.toLowerCase() === region));
+    console.log(filteredByCuisine);
+
+    return filteredByCuisine;
+}
+
+
+
 
 
 // Dynamically Creating Recipe Cards
@@ -240,13 +269,15 @@ const createARecipeCard = (recipe) => {
 
 // Displaying the Savoury Dishes Recipe Cards 
 
-const displaySavouryDishes = async () => {
+const displayDishes = async (func) => {
+    console.log(typeof func);
     try {
-        const recipes = await savouryDishesRecipes();
+        const recipes = await func();
 
-
+        console.log(recipes);
         noSearchResultsEl.innerHTML = '';
         for (let i=0; i<recipes.length; i++){
+
          const recipeCard =  createARecipeCard(recipes[i]);
 
         }
@@ -269,7 +300,7 @@ const displaySavouryDishes = async () => {
 
 
 
-// Savoury Dishes Event Handler Function 
+// Savoury Dishes, Drinks & Dessert Event Handler Function 
 
 const filterButtonsDiv = document.querySelector('#filters');
 const allFilterButtons = document.querySelectorAll('.filter');
@@ -278,7 +309,7 @@ for (let i =0; i<allFilterButtons.length; i++){
     filterButtonsTitles.push(allFilterButtons[i].textContent);
 }
 filterButtonsDiv.addEventListener('click', async (event)=> {
-   if (event.target.textContent === "Savoury Dishes"){
+   if (event.target.textContent === "Savoury Dishes" ){
         
         const findSavouryDishesRecipes = await savouryDishesRecipes();
 
@@ -287,11 +318,38 @@ filterButtonsDiv.addEventListener('click', async (event)=> {
         searchResultEl.textContent = `Search Results (${findSavouryDishesRecipes.length})`;
 
 
-        const renderSavouryRecipesCards = await displaySavouryDishes();
+        const renderSavouryRecipesCards = await displayDishes(savouryDishesRecipes);
         
         
         // noSearchResultsEl.replaceChildren(renderSavouryRecipesCards);
 
          
-   }
+   } else if (event.target.textContent === "Desserts & Drinks") {
+        const findDessertDrinksRecipes = await dessertDrinksRecipes();
+
+
+        console.log(findDessertDrinksRecipes);
+
+        searchResultEl.textContent = `Search Results (${findDessertDrinksRecipes.length})`;
+
+        const renderDessertDrinksRecipesCard = await displayDishes(dessertDrinksRecipes);
+} 
+})
+
+
+// Cuisine Event Handler Function 
+
+regionsWholeDiv.addEventListener('click', async (event) => {
+    console.log(event);
+    const cuisineArr = recipeCategories["Cuisine"];
+    const normailiseTargetedText = event.target.textContent.split(' ').splice(1,1).join('').toLowerCase();
+    console.log(normailiseTargetedText);
+    if (cuisineArr.some((region) => region.toLowerCase().includes(normailiseTargetedText))){
+        const selectedCuisine = normailiseTargetedText;
+        console.log(selectedCuisine);
+        const findRecipesBySelectedCuisine = await cuisineRecipes(selectedCuisine);
+        searchResultEl.textContent = `Search Results (${findRecipesBySelectedCuisine.length})`;
+        const renderRecipesBySelectedCuisine = await displayDishes(()=> 
+            cuisineRecipes(selectedCuisine));
+    }
 })
